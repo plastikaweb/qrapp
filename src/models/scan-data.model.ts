@@ -1,5 +1,11 @@
 export class ScanData {
   info: string;
-
-  constructor(private type: string) {}
+  type: string;
+  constructor(text: string) {
+    this.type = 'Undefined';
+    this.info = text;
+    if (text.startsWith('http')) {
+      this.type = 'http';
+    }
+  }
 }

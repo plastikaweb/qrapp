@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
-/**
- * Generated class for the RecordsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HistorialService } from '../../providers/historial/historial';
+import { ScanData } from '../../models/scan-data.model';
 
 @IonicPage()
 @Component({
   selector: 'page-records',
-  templateUrl: 'records.html',
+  templateUrl: 'records.html'
 })
 export class RecordsPage {
+  historial: ScanData[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(private historialService: HistorialService) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RecordsPage');
+    this.historial = this.historialService.loadHistorial();
   }
 
+  openScan(index: number) {
+    this.historialService.openScan(index);
+  }
 }
