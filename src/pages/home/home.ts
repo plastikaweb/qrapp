@@ -20,7 +20,8 @@ export class HomePage {
   scan() {
     if (!this.platform.is('cordova') ){
       console.log('dd');
-      this.historialService.addToHistorial('http://google.com');
+      // this.historialService.addToHistorial('http://google.com');
+      this.historialService.addToHistorial('geo:40.8125777,0.5214422999999897');
       return;
     }
     this.barcodeScanner.scan().then(

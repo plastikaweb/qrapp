@@ -1,5 +1,6 @@
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AgmCoreModule } from '@agm/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +17,13 @@ import { MyApp } from './app.component';
 
 @NgModule({
   declarations: [MyApp, HomePage, TabsPage, RecordsPage, MapPage],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyADnR_IfsjXCSWB8UAdwtCiMfZKTMwjsQ4'
+    })
+  ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, TabsPage, RecordsPage, MapPage],
   providers: [

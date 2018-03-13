@@ -6,6 +6,8 @@ export class ScanData {
     this.info = text;
     if (text.startsWith('http')) {
       this.type = 'http';
+    } else if (text.startsWith('geo')) {
+      this.type = 'map';
     }
   }
 }
